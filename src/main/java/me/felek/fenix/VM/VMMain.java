@@ -33,7 +33,7 @@ public class VMMain {
         Terminal terminal = new Terminal(CONSOLE_COLUMNS, CONSOLE_ROWS);
         terminal.calculateSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-        Font font = LoadFontEx("arial.ttf", terminal.getFontSize(), (IntBuffer) null, 0);
+        Font font = LoadFontEx("ARIAL.ttf", terminal.getFontSize(), (IntBuffer) null, 0);
 
         TerminalIO terminalIO = new TerminalIO(terminal);
 
@@ -54,6 +54,7 @@ public class VMMain {
 
         Preprocessor preprocessor = new Preprocessor();
         source = preprocessor.preprocess(source);
+        System.out.println(source);
 
         List<Token> tokens = Lexer.tokenize(source);
         int[] bytecode = Interpreter.compile(tokens);
